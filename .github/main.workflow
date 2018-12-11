@@ -4,7 +4,7 @@ action "Contentful Update" {
 
 workflow "New workflow" {
   on = "push"
-  resolves = ["Contentful Update-1"]
+  resolves = ["GitHub Action for npm"]
 }
 
 action "Build" {
@@ -12,7 +12,9 @@ action "Build" {
   args = "install"
 }
 
-action "Contentful Update-1" {
-  uses = "./contentful-update"
+action "GitHub Action for npm" {
+  uses = "actions/npm@6309cd9"
   needs = ["Build"]
+  secrets = ["spaceId", "accessToken"]
+  args = "migrate $spaceId $GITHUB_REF $accessToken"
 }
