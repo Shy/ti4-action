@@ -4,7 +4,7 @@ action "Contentful Update" {
 
 workflow "New workflow" {
   on = "push"
-  resolves = ["Deploy to Netlify"]
+  resolves = ["Netlify Rebuild"]
 }
 
 action "Build" {
@@ -19,7 +19,7 @@ action "Migrate" {
   args = "run-script migrate $spaceId $GITHUB_REF $accessToken"
 }
 
-action "Deploy to Netlify" {
+action "Netlify Rebuild" {
   uses = "./contentful-update"
   needs = ["Migrate"]
 }
