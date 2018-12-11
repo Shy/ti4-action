@@ -1,7 +1,7 @@
 FROM node:10-slim
 
-LABEL "com.github.actions.name"="Contentful Update"
-LABEL "com.github.actions.description"="Takes migration script and runs them against Contentful"
+LABEL "com.github.actions.name"="Netlify Rebuild"
+LABEL "com.github.actions.description"="Calls webhook to trigger rebuild on netlify"
 LABEL "com.github.actions.icon"="book"
 LABEL "com.github.actions.color"="blue"
 

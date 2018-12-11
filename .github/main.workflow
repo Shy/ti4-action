@@ -4,9 +4,22 @@ action "Contentful Update" {
 
 workflow "Migrate and Rebuild on Push" {
   on = "push"
-  resolves = ["Contentful Update-1"]
+  resolves = ["Netlify Rebuild"]
 }
 
-action "Contentful Update-1" {
+action "Build" {
+  uses = "actions/npm@6309cd9"
+  args = "install"
+}
+
+action "Migrate" {
+  uses = "actions/npm@6309cd9"
+  needs = ["Build"]
+  secrets = ["spaceId", "accessToken"]
+  args = "run-script migrate $spaceId $GITHUB_REF $accessToken"
+}
+
+action "Netlify Rebuild" {
   uses = "./contentful-update"
+  needs = ["Migrate"]
 }
