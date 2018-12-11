@@ -16,13 +16,15 @@
     //
     // Configuration variables
     //
-    const [,, SPACE_ID, ENVIRONMENT_ID, CMA_ACCESS_TOKEN] = process.argv;
+    const [,, SPACE_ID, GITHUB_REF, CMA_ACCESS_TOKEN] = process.argv;
     const MIGRATIONS_DIR = path.join('.', 'migrations');
 
     const client = createClient({
       accessToken: CMA_ACCESS_TOKEN
     });
     const space = await client.getSpace(SPACE_ID);
+
+    const ENVIRONMENT_ID = "GHA_" + GITHUB_REF.replace("refs/heads/","")
 
     let environment;
     console.log('Running with the following configuration');
