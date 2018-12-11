@@ -9,4 +9,5 @@ workflow "New workflow" {
 
 action "Hello World" {
   uses = "./contentful-update"
+  args = "Hello World"
 }
