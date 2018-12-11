@@ -1,5 +1,4 @@
 #!/bin/sh
-
 set -e
 
 prefix="refs/heads/"
