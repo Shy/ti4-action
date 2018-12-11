@@ -22,4 +22,5 @@ action "Migrate" {
 action "Netlify Rebuild" {
   uses = "./netlify-rebuild"
   needs = ["Migrate"]
+  secrets = ["netlifyBuildHook"]
 }
