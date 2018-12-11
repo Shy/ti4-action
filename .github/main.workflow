@@ -19,8 +19,7 @@ action "Migrate" {
   args = "run-script migrate $spaceId $GITHUB_REF $accessToken"
 }
 
-action "Trigger Netlify Rebuild" {
+action "Deploy to Netlify" {
   uses = "./contentful-update"
   needs = ["Migrate"]
-  args = "branch master"
 }
