@@ -3,10 +3,10 @@
 set -e
 
 if [ -z "$GITHUB_REF" ]; then
-  echo "not defined"
+    sh -c "echo master"
 else
-  echo "defined"
-  echo "$GITHUB_REF"
+    sh -c "echo branch"
+    sh -c "$GITHUB_REF"
 fi
 
 sh -c "npm $*"
