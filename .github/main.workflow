@@ -20,7 +20,7 @@ action "Migrate" {
 }
 
 action "Trigger Netlify Rebuild" {
-  needs = "Master"
   uses = "./contentful-update"
   needs = ["Migrate"]
+  args = "branch master"
 }
