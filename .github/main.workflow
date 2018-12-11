@@ -4,10 +4,9 @@ action "Contentful Update" {
 
 workflow "New workflow" {
   on = "push"
-  resolves = ["Hello World"]
+  resolves = ["Contentful Update-1"]
 }
 
-action "Hello World" {
+action "Contentful Update-1" {
   uses = "./contentful-update"
-  args = "Hello World"
 }
