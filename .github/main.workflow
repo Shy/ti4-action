@@ -16,5 +16,5 @@ action "Migrate" {
   uses = "actions/npm@6309cd9"
   needs = ["Build"]
   secrets = ["spaceId", "accessToken"]
-  args = "migrate $spaceId $GITHUB_REF $accessToken"
+  args = "node migrate $spaceId $GITHUB_REF $accessToken"
 }
