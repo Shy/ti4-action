@@ -1,5 +1,9 @@
 #!/bin/sh
 
+set -e
+
+prefix="refs/heads/"
+branch=${GITHUB_REF#"$prefix"}
 
 if test "$branch" = 'master'; then
     sh -c "echo 'Triggering rebuild on Netlify via webhook.'"
