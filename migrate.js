@@ -25,9 +25,9 @@
     const space = await client.getSpace(SPACE_ID);
 
     if (GITHUB_REF.replace("refs/heads/","") !=  'master'){
-      const ENVIRONMENT_ID = "GHA_" + GITHUB_REF.replace("refs/heads/","")
+      var ENVIRONMENT_ID = "GHA_" + GITHUB_REF.replace("refs/heads/","")
     }else{
-      const ENVIRONMENT_ID = 'master'
+      var ENVIRONMENT_ID = 'master'
     }
 
     let environment;
