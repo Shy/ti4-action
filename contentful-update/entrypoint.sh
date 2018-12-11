@@ -2,14 +2,11 @@
 
 set -e
 
-if [ -z "$GITHUB_REF" ]; then
+if [ -z "$GITHUB_REF" == 'refs/heads/master' ]; then
     sh -c "echo master"
 else
     sh -c "echo branch"
-    sh -c "$GITHUB_REF"
+    prefix="refs/heads/"
+    branch=${GITHUB_REF#"$prefix"}
+    sh -c "echo $branch"
 fi
-
-sh -c "npm $*"
-
-
-
