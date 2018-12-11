@@ -20,6 +20,6 @@ action "Migrate" {
 }
 
 action "Netlify Rebuild" {
-  uses = "./contentful-update"
+  uses = "./netlify-rebuild"
   needs = ["Migrate"]
 }
