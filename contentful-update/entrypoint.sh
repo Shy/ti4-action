@@ -2,7 +2,7 @@
 
 set -e
 
-if [[ -z "$GITHUB_REF" ]]; then
+if [ -z "$GITHUB_REF" ]; then
   echo "not defined"
 else
   echo "defined"
