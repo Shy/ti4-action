@@ -1,13 +1,13 @@
-FROM debian:9.5-slim
+FROM node:10-slim
 
-LABEL "com.github.actions.name"="Hello World"
-LABEL "com.github.actions.description"="Write arguments to the standard output"
-LABEL "com.github.actions.icon"="mic"
-LABEL "com.github.actions.color"="purple"
+LABEL "com.github.actions.name"="Contentful Update"
+LABEL "com.github.actions.description"="Takes migration script and runs them against Contentful"
+LABEL "com.github.actions.icon"="book"
+LABEL "com.github.actions.color"="blue"
 
-LABEL "repository"="http://github.com/octocat/hello-world"
-LABEL "homepage"="http://github.com/actions"
-LABEL "maintainer"="Octocat <octocat@github.com>"
+LABEL "repository"="http://github.com/shy/ti4-action"
+LABEL "homepage"="http://github.com/shy/ti4-action"
+LABEL "maintainer"="Shy <shy@contentful.com>"
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
