@@ -4,18 +4,10 @@ action "Contentful Update" {
 
 workflow "Migrate and Rebuild on Push" {
   on = "push"
-  resolves = [
-    "Contentful Update-1",
-  ]
+  resolves = ["Contentful Migration"]
 }
 
-action "Build" {
-  uses = "actions/npm@6309cd9"
-  args = "install"
-}
-
-action "Contentful Update-1" {
+action "Contentful Migration" {
   uses = "./contentful-update"
-  needs = ["Build"]
   secrets = ["accessToken", "spaceId"]
 }
